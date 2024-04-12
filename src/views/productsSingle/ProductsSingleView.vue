@@ -3,8 +3,11 @@ import { useProductsSingleStore } from '@/stores/productsSingleStore';
 import { useRoute } from 'vue-router';
 import { useBasketStore } from '@/stores/basketStore';
 
-const basketStore = useBasketStore()
+const route = useRoute()
 
+const basketStore = useBasketStore()
+const productsSingleStore = useProductsSingleStore()
+productsSingleStore.getFetchSingleProducts(route.params.id)
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
@@ -36,10 +39,8 @@ const pagination = {
 }
 
 
-const route = useRoute()
 
-const productsSingleStore = useProductsSingleStore()
-productsSingleStore.getFetchSingleProducts(route.params.id)
+
 
 
 </script>

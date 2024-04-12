@@ -10,10 +10,10 @@ export const useProductsSingleStore = defineStore('productsSingle',  {
             try {
                 const res = await apiProducts.getSingleProducts(id)
                 this.productsSingle = res
+                console.log(res);
             } catch (error) {
                 console.error(error);
             }
         },
-        
     }
 });

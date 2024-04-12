@@ -18,9 +18,8 @@ const router = createRouter({
       beforeEnter(to, from) {
         const productsStore = useProductsStore()
         productsStore.getFetchProductsAll()
-        const exsists = productsStore.productsAll?.find(item => item.id == to.params.id)
-        // const exsists = to.params.id <= productsStore.total
-        if(!exsists) {
+        const exsist = productsStore.products?.find(item => item.id == to.params.id)
+        if(!exsist) {
           return {
             name: "NotFound",
             params: { pathMatch: to.path.split("/").slice(1) },
